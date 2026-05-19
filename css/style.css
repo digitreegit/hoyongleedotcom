@@ -163,11 +163,11 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   position: relative;
 }
 .home-name {
-  font-size: clamp(40px, 8vw, 88px);
+  font-size: clamp(28px, 5vw, 52px);
   font-weight: 300;
   letter-spacing: -.02em;
   line-height: 1;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .home-cats {
   display: flex;
@@ -524,7 +524,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   .proj-meta { gap: 18px; }
   .exp-item { grid-template-columns: 1fr; gap: 4px; }
 
-  .home-name { font-size: clamp(36px, 12vw, 56px); }
+  .home-name { font-size: clamp(26px, 8vw, 40px); }
   .home-cats {
     flex-direction: column;
     align-items: center;
