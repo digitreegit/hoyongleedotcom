@@ -160,4 +160,73 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSidebar();
   bindBehaviour();
   highlightCurrent();
+  initLightbox();
 });
+
+/* ────── Image lightbox catalog ────── */
+function initLightbox() {
+  const imgs = [
+    ...document.querySelectorAll('.proj-images img, .photo-grid img')
+  ];
+  if (!imgs.length) return;
+
+  const root = document.createElement('div');
+  root.className = 'lightbox';
+  root.setAttribute('role', 'dialog');
+  root.setAttribute('aria-modal', 'true');
+  root.setAttribute('aria-label', 'Image viewer');
+  root.innerHTML = `
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+    <button class="lightbox-prev" type="button" aria-label="Previous">‹</button>
+    <img class="lightbox-img" alt="" />
+    <button class="lightbox-next" type="button" aria-label="Next">›</button>
+    <div class="lightbox-counter" aria-live="polite"></div>
+  `;
+  document.body.appendChild(root);
+
+  const view = root.querySelector('.lightbox-img');
+  const counter = root.querySelector('.lightbox-counter');
+  let index = 0;
+
+  const show = (i) => {
+    index = (i + imgs.length) % imgs.length;
+    const src = imgs[index].currentSrc || imgs[index].src;
+    view.src = src;
+    view.alt = imgs[index].alt || '';
+    counter.textContent = `${index + 1} / ${imgs.length}`;
+  };
+
+  const open = (i) => {
+    show(i);
+    root.classList.add('open');
+    document.documentElement.classList.add('lb-open');
+  };
+
+  const close = () => {
+    root.classList.remove('open');
+    document.documentElement.classList.remove('lb-open');
+    view.removeAttribute('src');
+  };
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(i);
+    });
+  });
+
+  root.querySelector('.lightbox-close').addEventListener('click', close);
+  root.querySelector('.lightbox-prev').addEventListener('click', () => show(index - 1));
+  root.querySelector('.lightbox-next').addEventListener('click', () => show(index + 1));
+  root.addEventListener('click', (e) => {
+    if (e.target === root) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!root.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(index - 1);
+    if (e.key === 'ArrowRight') show(index + 1);
+  });
+}

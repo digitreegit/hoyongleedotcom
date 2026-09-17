@@ -311,7 +311,8 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   margin: 0;
   line-height: 0;
   overflow: hidden;
-  background: #f5f5f5;
+  background: transparent;
+  cursor: zoom-in;
 }
 .img-full img,
 .img-half-left img {
@@ -449,9 +450,10 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 .photo-item { display: block; }
 .photo-frame {
   width: 100%;
-  background: #f5f5f5;
+  background: transparent;
   line-height: 0;
   overflow: hidden;
+  cursor: zoom-in;
 }
 .photo-frame img {
   width: 100%;
@@ -563,4 +565,77 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 }
 @media (max-width: 600px) {
   .proj-images { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ════════════════════════════
+   LIGHTBOX / IMAGE CATALOG
+════════════════════════════ */
+.lb-open { overflow: hidden; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  padding: 48px 72px;
+}
+.lightbox.open { display: flex; }
+.lightbox-img {
+  max-width: min(1100px, 100%);
+  max-height: calc(100vh - 96px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  opacity: .75;
+  transition: opacity .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover { opacity: 1; }
+.lightbox-close {
+  top: 18px;
+  right: 22px;
+  font-size: 28px;
+  padding: 8px;
+}
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 42px;
+  padding: 16px 12px;
+}
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.7);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+@media (max-width: 768px) {
+  .lightbox { padding: 56px 16px 72px; }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
+  .lightbox-prev,
+  .lightbox-next { font-size: 32px; }
 }
