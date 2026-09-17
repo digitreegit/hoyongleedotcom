@@ -6,7 +6,7 @@ const NAV = [
   {
     id: 'mobile-app',
     label: 'Mobile App',
-    href: 'mobile-app.html',
+    href: 'smartfren-mysf.html',
     items: [
       { href: 'smartfren-mysf.html',   label: 'Smartfren — mySF' },
       { href: 'dalligent-kupu.html',   label: 'Dalligent — KUPU' },
@@ -27,7 +27,7 @@ const NAV = [
   {
     id: 'web-platform',
     label: 'Web Platform',
-    href: 'web-platform.html',
+    href: 'smartfren-1engage.html',
     items: [
       { href: 'smartfren-1engage.html',  label: 'Smartfren — 1Engage' },
       { href: 'glmx.html',               label: 'GLMX' },
@@ -38,7 +38,7 @@ const NAV = [
   {
     id: 'product-design',
     label: 'Product Design',
-    href: 'product-design.html',
+    href: 'icam-td100.html',
     items: [
       { href: 'icam-td100.html', label: 'iCAM TD100' },
       { href: 'icam-h100.html',  label: 'iCAM H100' }
@@ -47,7 +47,7 @@ const NAV = [
   {
     id: 'photography',
     label: 'Photography',
-    href: 'photography.html',
+    href: 'walk-into-crowd-vol2.html',
     items: [
       { href: 'walk-into-crowd-vol2.html', label: 'A Walk into the Crowd Vol. 2' },
       { href: 'walk-into-crowd-vol1.html', label: 'A Walk into the Crowd Vol. 1' }
@@ -70,8 +70,7 @@ function renderSidebar() {
         ${cat.label}
         <span class="nav-cat-arrow">›</span>
       </div>
-      <ul class="nav-sub">
-        <li><a class="nav-sub-all" href="${cat.href}">All ${cat.label} →</a></li>`;
+      <ul class="nav-sub">`;
     cat.items.forEach(it => {
       html += `<li><a href="${it.href}">${it.label}</a></li>`;
     });
@@ -112,18 +111,17 @@ function bindBehaviour() {
     });
   });
 
-  // Category dropdown toggle (clicking the category opens/closes sub-list).
-  // Hold Shift / Cmd / Ctrl to navigate to the category gallery instead.
+  // Category row: navigate to first project. Shift / Cmd / Ctrl still expands list.
   document.querySelectorAll('.nav-cat').forEach(cat => {
     cat.addEventListener('click', e => {
       if (e.shiftKey || e.metaKey || e.ctrlKey) {
-        const href = cat.dataset.href;
-        if (href) location.href = href;
+        const sub = cat.nextElementSibling;
+        const isOpen = sub?.classList.toggle('open');
+        cat.classList.toggle('open', !!isOpen);
         return;
       }
-      const sub = cat.nextElementSibling;
-      const isOpen = sub?.classList.toggle('open');
-      cat.classList.toggle('open', !!isOpen);
+      const href = cat.dataset.href;
+      if (href) location.href = href;
     });
   });
 }
@@ -132,7 +130,6 @@ function bindBehaviour() {
 function highlightCurrent() {
   const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
 
-  // Highlight current sub-link / about-link, expand parent group
   document.querySelectorAll('.sidebar a').forEach(a => {
     const href = (a.getAttribute('href') || '').toLowerCase();
     if (href === page) {
@@ -145,18 +142,18 @@ function highlightCurrent() {
     }
   });
 
-  // If we're on a category page, expand that category and highlight "All X"
-  const cat = NAV.find(c => c.href.toLowerCase() === page);
-  if (cat) {
-    const navCat = document.querySelector(`.nav-cat[data-group="${cat.id}"]`);
-    if (navCat) {
-      navCat.classList.add('open');
-      const sub = navCat.nextElementSibling;
-      sub?.classList.add('open');
-      const all = sub?.querySelector('.nav-sub-all');
-      all?.classList.add('active');
+  // Expand category containing the current page
+  NAV.forEach(cat => {
+    const match = cat.items.some(it => it.href.toLowerCase() === page)
+      || cat.href.toLowerCase() === page;
+    if (match) {
+      const navCat = document.querySelector(`.nav-cat[data-group="${cat.id}"]`);
+      if (navCat) {
+        navCat.classList.add('open');
+        navCat.nextElementSibling?.classList.add('open');
+      }
     }
-  }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
