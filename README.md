@@ -1,15 +1,15 @@
 # hoyonglee.com
 
-Personal portfolio site for Hoyong Lee — Creative Director, UI/UX designer.
+Personal portfolio site for Hoyong Lee – Creative Director, UI/UX designer.
 A pure static site, with content updated from
 [hoyonglee.format.com](https://hoyonglee.format.com/) into the existing custom design system.
 
 ## Stack
 
-- **Pure HTML / CSS / Vanilla JS** — no build step, no framework, no dependencies
+- **Pure HTML / CSS / Vanilla JS** – no build step, no framework, no dependencies
 - **Single shared sidebar** rendered by `js/site.js` (data-driven, edit one place)
 - **Inter** font from Google Fonts
-- Fully responsive — desktop sidebar collapses to a mobile burger menu under 768px
+- Fully responsive – desktop sidebar collapses to a mobile burger menu under 768px
 
 ## Project structure
 
@@ -59,12 +59,12 @@ A pure static site, with content updated from
 ### Add or rename a project
 
 Open `js/site.js` and edit the `NAV` array. Every page automatically picks up
-the new sidebar layout — no need to touch each HTML file.
+the new sidebar layout – no need to touch each HTML file.
 
 ```js
 const NAV = [
   { id: 'mobile-app', label: 'Mobile App', href: 'mobile-app.html', items: [
-    { href: 'smartfren-mysf.html', label: 'Smartfren — mySF' },
+    { href: 'smartfren-mysf.html', label: 'Smartfren – mySF' },
     ...
   ]},
   ...
@@ -93,7 +93,7 @@ Project detail pages already support images via `.img-full` and `.img-half-left`
 
 ## Local preview
 
-No build step needed — just open `index.html`, or run a tiny static server:
+No build step needed – just open `index.html`, or run a tiny static server:
 
 ```bash
 # Python 3

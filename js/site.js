@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════
-   Hoyong Lee — Site nav data + sidebar render
+   Hoyong Lee – Site nav data + sidebar render
    ════════════════════════════════════════════ */
 
 const NAV = [
@@ -8,8 +8,8 @@ const NAV = [
     label: 'Mobile App',
     href: 'smartfren-mysf.html',
     items: [
-      { href: 'smartfren-mysf.html',   label: 'Smartfren — mySF' },
-      { href: 'dalligent-kupu.html',   label: 'Dalligent — KUPU' },
+      { href: 'smartfren-mysf.html',   label: 'Smartfren – mySF' },
+      { href: 'dalligent-kupu.html',   label: 'Dalligent – KUPU' },
       { href: 'bakkt-app.html',        label: 'Bakkt App' },
       { href: 'iris-id.html',          label: 'Iris ID' },
       { href: 'sparemin.html',         label: 'SpareMin' },
@@ -29,7 +29,7 @@ const NAV = [
     label: 'Web Platform',
     href: 'smartfren-1engage.html',
     items: [
-      { href: 'smartfren-1engage.html',  label: 'Smartfren — 1Engage' },
+      { href: 'smartfren-1engage.html',  label: 'Smartfren – 1Engage' },
       { href: 'glmx.html',               label: 'GLMX' },
       { href: 'deutsche-telekom.html',   label: 'Deutsche Telekom' },
       { href: 'att-detect-connect.html', label: 'AT&T Detect & Connect' }

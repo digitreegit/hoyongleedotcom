@@ -290,7 +290,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 }
 .meta-val { font-size: 14px; font-weight: 500; color: var(--black); }
 
-/* Images — 3-column grid */
+/* Images – 3-column grid */
 .proj-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -351,7 +351,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   position: relative;
 }
 .proj-body ul li::before {
-  content: '—';
+  content: '–';
   position: absolute;
   left: 0;
   color: var(--gray);
@@ -510,7 +510,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   padding: 4px 0 4px 16px;
   position: relative;
 }
-.about-section ul li::before { content: '—'; position: absolute; left: 0; color: var(--gray); font-size: 11px; top: 6px; }
+.about-section ul li::before { content: '–'; position: absolute; left: 0; color: var(--gray); font-size: 11px; top: 6px; }
 
 .exp-item {
   display: grid;
@@ -525,7 +525,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 .exp-company { font-size: 14px; font-weight: 400; color: var(--gray); margin-bottom: 6px; }
 .exp-desc    { font-size: 14px; font-weight: 400; color: #444; line-height: 1.7; }
 .exp-desc ul li { font-size: 14px; padding: 3px 0 3px 14px; position: relative; }
-.exp-desc ul li::before { content: '—'; position: absolute; left: 0; color: var(--gray); font-size: 10px; top: 5px; }
+.exp-desc ul li::before { content: '–'; position: absolute; left: 0; color: var(--gray); font-size: 10px; top: 5px; }
 
 /* ════════════════════════════
    RESPONSIVE
