@@ -290,17 +290,39 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 }
 .meta-val { font-size: 14px; font-weight: 500; color: var(--black); }
 
-/* Images */
-.proj-images { margin-bottom: 52px; padding: 10px; }
-.img-full { width: 100%; display: block; margin-bottom: 20px; line-height: 0; }
-.img-full img { width: 100%; height: auto; display: block; }
-.img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.img-row img { width: 100%; height: auto; display: block; }
-.img-row-single { grid-template-columns: 1fr 1fr; }
-.img-row-single img { grid-column: 1; }
-/* 50% width, left-aligned */
-.img-half-left { display: block; margin-bottom: 20px; line-height: 0; }
-.img-half-left img { width: 50%; height: auto; display: block; }
+/* Images — 3-column grid */
+.proj-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 52px;
+  padding: 10px 0;
+}
+.img-full,
+.img-half-left {
+  width: 100%;
+  display: block;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.img-full img,
+.img-half-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.img-row {
+  display: contents;
+}
+.img-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.img-row-single { display: contents; }
+.img-row-single img { width: 100%; height: auto; display: block; }
 
 /* Body text */
 .proj-body h2 {
@@ -523,9 +545,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   .proj-page    { padding: 24px 20px 80px; }
   .about-page   { padding: 24px 20px 80px; }
 
-  .img-row { grid-template-columns: 1fr; }
-  .img-row-single { grid-template-columns: 1fr; }
-  .img-half-left img { width: 75%; }
+  .proj-images { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .proj-meta { gap: 18px; }
   .exp-item { grid-template-columns: 1fr; gap: 4px; }
 
@@ -545,5 +565,5 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   .gi-cap { opacity: 1; background: rgba(255,255,255,.88); padding: 14px; }
 }
 @media (max-width: 600px) {
-  .img-row-single { grid-template-columns: 1fr; }
+  .proj-images { grid-template-columns: 1fr; gap: 12px; }
 }
