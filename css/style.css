@@ -565,7 +565,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   .gi-cap { opacity: 1; background: rgba(255,255,255,.88); padding: 14px; }
 }
 @media (max-width: 600px) {
-  .proj-images { grid-template-columns: 1fr; gap: 12px; }
+  .proj-images { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 }
 
 /* ════════════════════════════
