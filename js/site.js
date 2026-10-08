@@ -47,10 +47,10 @@ const NAV = [
   {
     id: 'photography',
     label: 'Photography',
-    href: 'walk-into-crowd-vol2.html',
+    href: 'walk-into-crowd-vol1.html',
     items: [
-      { href: 'walk-into-crowd-vol2.html', label: 'A Walk into the Crowd Vol. 2' },
-      { href: 'walk-into-crowd-vol1.html', label: 'A Walk into the Crowd Vol. 1' }
+      { href: 'walk-into-crowd-vol1.html', label: 'A Walk into the Crowd Vol. 1' },
+      { href: 'walk-into-crowd-vol2.html', label: 'A Walk into the Crowd Vol. 2' }
     ]
   }
 ];
@@ -210,10 +210,12 @@ function initLightbox() {
 
   imgs.forEach((img, i) => {
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', (e) => {
+    const openAt = (e) => {
       e.preventDefault();
       open(i);
-    });
+    };
+    const item = img.closest('.photo-item');
+    (item || img).addEventListener('click', openAt);
   });
 
   root.querySelector('.lightbox-close').addEventListener('click', close);
