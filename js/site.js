@@ -4,6 +4,15 @@
 
 const NAV = [
   {
+    id: 'ai',
+    label: 'AI',
+    href: 'my-password-vault.html',
+    items: [
+      { href: 'my-password-vault.html', label: 'My Password Vault' },
+      { href: 'my-golf-score-card.html', label: 'My Golf Score Card' }
+    ]
+  },
+  {
     id: 'mobile-app',
     label: 'Mobile App',
     href: 'smartfren-mysf.html',
