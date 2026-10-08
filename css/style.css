@@ -445,8 +445,9 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 }
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px 16px;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  max-width: 920px;
 }
 .photo-item {
   display: block;
@@ -464,9 +465,9 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   display: block;
 }
 .photo-cap {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--gray);
-  margin-top: 8px;
+  margin-top: 12px;
   line-height: 1.55;
 }
 @media (max-width: 900px) {

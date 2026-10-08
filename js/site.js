@@ -47,10 +47,10 @@ const NAV = [
   {
     id: 'photography',
     label: 'Photography',
-    href: 'walk-into-crowd-vol1.html',
+    href: 'walk-into-crowd-vol2.html',
     items: [
-      { href: 'walk-into-crowd-vol1.html', label: 'A Walk into the Crowd Vol. 1' },
-      { href: 'walk-into-crowd-vol2.html', label: 'A Walk into the Crowd Vol. 2' }
+      { href: 'walk-into-crowd-vol2.html', label: 'A Walk into the Crowd Vol. 2' },
+      { href: 'walk-into-crowd-vol1.html', label: 'A Walk into the Crowd Vol. 1' }
     ]
   }
 ];
